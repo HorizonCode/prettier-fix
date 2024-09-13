@@ -60,21 +60,15 @@ runs:
           fi
         done    
 
-        # Set branch name and create branch
+        # Set User and commit
         TIMESTAMP=$(date +'%y%m%d%H%M%S')
         SHORT_HASH=$(git rev-parse --short HEAD)
-        BRANCH_NAME="prettier/fix-${TIMESTAMP}-${SHORT_HASH}"
-        git checkout -b $BRANCH_NAME
-        echo "New branch created: $BRANCH_NAME"
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-
-        # Commit changes without including .github/workflows
-        git reset .github/workflows/*.yml
         git commit -m "Prettier fixes applied automatically on $(date +"%Y-%m-%d %H:%M:%S")"
 
-        # Push changes to new branch
-        git push origin $BRANCH_NAME
+        # Push changes to branch
+        git push
       shell: bash
 
 branding:
