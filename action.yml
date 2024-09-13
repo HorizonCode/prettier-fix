@@ -1,5 +1,5 @@
 ---
-name: "Prettier Fix"
+name: "Prettier Fix (Commit)"
 description: "A GitHub action to apply Prettier fixes"
 
 inputs:
